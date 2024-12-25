@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasper Fernandez Vegas - Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #4f46e5;
+            --accent: #818cf8;
+            --dark: #1e1b4b;
+            --light: #eef2ff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --font-heading: 'Syne', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --font-code: 'IBM Plex Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1.7;
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+            letter-spacing: 0.02em;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.15) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header p {
+            font-family: var(--font-code);
+            font-size: 1.1rem;
+            opacity: 0.9;
+            letter-spacing: 0.05em;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease-out;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        section:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        section:hover h2::after {
+            width: 100%;
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            color: var(--light);
+            margin: 2.5rem 0 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        li {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gradient);
+            transition: height 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(8px);
+            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--accent);
+        }
+
+        li:hover::before {
+            height: 100%;
+        }
+
+        strong {
+            font-family: var(--font-code);
+            color: var(--accent);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--light);
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .glowing-text {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(99, 102, 241, 0.2),
+                           0 0 20px rgba(99, 102, 241, 0.2),
+                           0 0 30px rgba(99, 102, 241, 0.2);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(99, 102, 241, 0.4),
+                           0 0 30px rgba(99, 102, 241, 0.4),
+                           0 0 40px rgba(99, 102, 241, 0.4);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            section {
+                padding: 2rem;
+            }
+
+            ul {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rest of the HTML remains the same -->
+    <div class="background"></div>
+    <header>
+        <h1 class="glowing-text">Jasper Fernandez Vegas</h1>
+        <p>Full-Stack Developer | NLP & LLM Specialist</p>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Jasper, a passionate and experienced developer with expertise in front-end and back-end technologies. 
+                I specialize in creating modern, responsive, and scalable web applications.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <h3>Front-End Development</h3>
+            <ul>
+                <li><strong>HTML & CSS</strong> Crafting semantic, accessible, and responsive web designs.</li>
+                <li><strong>Tailwind CSS</strong> Utility-first framework for rapidly building custom user interfaces.</li>
+                <li><strong>Bootstrap</strong> Building responsive and consistent layouts with ease.</li>
+                <li><strong>JavaScript</strong> Creating dynamic, interactive, and user-friendly web applications.</li>
+                <li><strong>Vue.js</strong> Developing robust and efficient single-page applications (SPAs).</li>
+                <li><strong>PUG</strong> Streamlining the process of writing clean and efficient HTML templates.</li>
+            </ul>
+            <h3>Back-End Development</h3>
+            <ul>
+                <li><strong>PHP</strong> Developing server-side logic and dynamic websites.</li>
+                <li><strong>Python</strong> Expertise in building scalable applications using frameworks like Django and Flask.</li>
+                <li><strong>Django</strong> Creating secure, scalable, and feature-rich web applications with ease.</li>
+                <li><strong>Flask</strong> Building lightweight, microservices-based backend systems.</li>
+                <li><strong>Node.js</strong> Building fast, scalable network applications using non-blocking I/O.</li>
+                <li><strong>CUDA</strong> Leveraging GPU programming for computationally intensive tasks.</li>
+            </ul>
+            <h3>Specialized Skills</h3>
+            <ul>
+                <li><strong>Natural Language Processing (NLP)</strong> Developing AI applications to process and analyze human language data.</li>
+                <li><strong>Large Language Models (LLMs)</strong> Implementing advanced AI techniques for conversational AI and text generation.</li>
+                <li><strong>AI Development</strong> Expertise in creating intelligent systems for various applications.</li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>If you're interested in working with me or learning more about my skills, feel free to reach out:</p>
+            <ul>
+                <li><strong>Email</strong> jasper.fernandez.vegas@example.com</li>
+                <li><strong>LinkedIn</strong> <a href="https://www.linkedin.com/in/jasper-fernandez-vegas" target="_blank">linkedin.com/in/jasper-fernandez-vegas</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jasper Fernandez Vegas. All rights reserved.</p>
+    </footer>
+</body>
+</html>
